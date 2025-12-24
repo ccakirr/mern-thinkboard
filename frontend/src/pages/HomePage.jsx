@@ -16,7 +16,7 @@ const HomePage = () => {
     const fetchNotes = async () => {
       setLoading(true);
       try {
-        const res = await api.get("http://localhost:3000/api/notes");
+        const res = await api.get("/notes");
         setNotes(res.data);
         setIsRateLimited(false);
       } catch (error) {

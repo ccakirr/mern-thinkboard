@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import RateLimited from "../components/RateLimited";
 import { useState } from "react";
-import axios from "axios";
+import api from "../lib/axios";
 import toast from "react-hot-toast";
 import { Loader2 } from "lucide-react";
 import NoteCard from "../components/NoteCard";
@@ -16,7 +16,7 @@ const HomePage = () => {
     const fetchNotes = async () => {
       setLoading(true);
       try {
-        const res = await axios.get("http://localhost:3000/api/notes");
+        const res = await api.get("http://localhost:3000/api/notes");
         setNotes(res.data);
         setIsRateLimited(false);
       } catch (error) {
